@@ -1,0 +1,31 @@
+server:
+  port: 8090
+
+spring:
+  h2:
+    console:
+      enabled: true
+  
+  # http://localhost:8090/h2-console/
+
+  datasource:
+    url: jdbc:h2:mem:db_exchange_rates;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    platform: h2
+    username: sa
+    password:
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: false
+        format_sql: true
+  
+  # security
+secret:
+  key: secretTcs
