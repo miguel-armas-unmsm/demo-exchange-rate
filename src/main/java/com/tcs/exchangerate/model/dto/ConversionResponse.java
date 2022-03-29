@@ -18,4 +18,5 @@ public class ConversionResponse {
     private String targetCurrency;
     private Double exchangeRate;
     private Double amountWithExchangeRate;
+    private String author = "Miguel Rodrigo Armas Abt";
 }

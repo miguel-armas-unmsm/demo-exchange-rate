@@ -1412,7 +1412,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 29 Mar 2022 19:53:06 GMT"
+							"value": "Tue, 29 Mar 2022 20:29:32 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -1424,7 +1424,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"amount\": 100,\n    \"sourceCurrency\": \"LIBRA\",\n    \"targetCurrency\": \"EURO\",\n    \"exchangeRate\": 1.19,\n    \"amountWithExchangeRate\": 119.46\n}"
+					"body": "{\n    \"amount\": 100,\n    \"sourceCurrency\": \"LIBRA\",\n    \"targetCurrency\": \"EURO\",\n    \"exchangeRate\": 1.19,\n    \"amountWithExchangeRate\": 119.46,\n    \"author\": \"Miguel Rodrigo Armas Abt\"\n}"
 				}
 			]
 		}
