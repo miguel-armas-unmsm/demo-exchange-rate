@@ -127,79 +127,7 @@
 					"body": "{\n    \"jwt\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODYxMzk2MSwiaWF0IjoxNjQ4NTc3OTYxfQ.xruVQlAsgcCA52vIDGo4PfKI_l0IWVSXjnDurm6ZT9k\"\n}"
 				},
 				{
-					"name": "400 Bad request (Campos incompletos)",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    // \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8090/tcs/v1/auth",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8090",
-							"path": [
-								"tcs",
-								"v1",
-								"auth"
-							]
-						}
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": "plain",
-					"header": [
-						{
-							"key": "X-Content-Type-Options",
-							"value": "nosniff"
-						},
-						{
-							"key": "X-XSS-Protection",
-							"value": "1; mode=block"
-						},
-						{
-							"key": "Cache-Control",
-							"value": "no-cache, no-store, max-age=0, must-revalidate"
-						},
-						{
-							"key": "Pragma",
-							"value": "no-cache"
-						},
-						{
-							"key": "Expires",
-							"value": "0"
-						},
-						{
-							"key": "X-Frame-Options",
-							"value": "DENY"
-						},
-						{
-							"key": "Content-Length",
-							"value": "0"
-						},
-						{
-							"key": "Date",
-							"value": "Tue, 29 Mar 2022 18:19:41 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "close"
-						}
-					],
-					"cookie": [],
-					"body": null
-				},
-				{
-					"name": "400 Bad request (Credenciales incorrectas)",
+					"name": "400 Bad request (credenciales incorrectas)",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -273,6 +201,82 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"systemCode\": \"ERROR0006\",\n    \"description\": \"Los datos proporcionados para la autenticación son incorrectos\",\n    \"httpStatus\": \"400 BAD_REQUEST\"\n}"
+				},
+				{
+					"name": "400 Bad request (campos nulos)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/tcs/v1/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"tcs",
+								"v1",
+								"auth"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Mar 2022 13:11:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"systemCode\": \"ARGUMENT_NOT_VALID\",\n    \"description\": \"Los datos proporcionados no son válidos.\",\n    \"httpStatus\": \"400 BAD_REQUEST\",\n    \"additionalDetails\": [\n        \"username cannot be null\"\n    ]\n}"
 				}
 			]
 		},
@@ -410,90 +414,6 @@
 					"body": null
 				},
 				{
-					"name": "400 Bad request",
-					"originalRequest": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"type\": \"bolivar\",\r\n    // \"price\": 0.5\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8090/tcs/v1/exchange-rates/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8090",
-							"path": [
-								"tcs",
-								"v1",
-								"exchange-rates",
-								"4"
-							]
-						}
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": "plain",
-					"header": [
-						{
-							"key": "X-Content-Type-Options",
-							"value": "nosniff"
-						},
-						{
-							"key": "X-XSS-Protection",
-							"value": "1; mode=block"
-						},
-						{
-							"key": "Cache-Control",
-							"value": "no-cache, no-store, max-age=0, must-revalidate"
-						},
-						{
-							"key": "Pragma",
-							"value": "no-cache"
-						},
-						{
-							"key": "Expires",
-							"value": "0"
-						},
-						{
-							"key": "X-Frame-Options",
-							"value": "DENY"
-						},
-						{
-							"key": "Content-Length",
-							"value": "0"
-						},
-						{
-							"key": "Date",
-							"value": "Tue, 29 Mar 2022 17:30:11 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "close"
-						}
-					],
-					"cookie": [],
-					"body": null
-				},
-				{
 					"name": "403 Forbidden",
 					"originalRequest": {
 						"method": "PUT",
@@ -584,6 +504,94 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"timestamp\": \"2022-03-29T17:30:30.253+00:00\",\n    \"status\": 403,\n    \"error\": \"Forbidden\",\n    \"message\": \"Access Denied\",\n    \"path\": \"/tcs/v1/exchange-rates/4\"\n}"
+				},
+				{
+					"name": "403 Bad request (campos nulos)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4MTc1NiwiaWF0IjoxNjQ4NjQ1NzU2fQ.IejVtStojExe9pdorCQXtNKFFeChKT3Sr_Y7Q7ZVTVU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"price\": 0.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/tcs/v1/exchange-rates/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"tcs",
+								"v1",
+								"exchange-rates",
+								"4"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Mar 2022 13:09:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"systemCode\": \"ARGUMENT_NOT_VALID\",\n    \"description\": \"Los datos proporcionados no son válidos.\",\n    \"httpStatus\": \"400 BAD_REQUEST\",\n    \"additionalDetails\": [\n        \"type cannot be null\"\n    ]\n}"
 				}
 			]
 		},
@@ -627,6 +635,93 @@
 				}
 			},
 			"response": [
+				{
+					"name": "400 Bad request (campos nulos)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4MTA1OSwiaWF0IjoxNjQ4NjQ1MDU5fQ.I9Z85p474C2pGXqcEu-9OFmi33lUULyhuIHNbcfNY8w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"price\": 0.7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/tcs/v1/exchange-rates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"tcs",
+								"v1",
+								"exchange-rates"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Mar 2022 13:08:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"systemCode\": \"ARGUMENT_NOT_VALID\",\n    \"description\": \"Los datos proporcionados no son válidos.\",\n    \"httpStatus\": \"400 BAD_REQUEST\",\n    \"additionalDetails\": [\n        \"type cannot be null\"\n    ]\n}"
+				},
 				{
 					"name": "403 Forbidden",
 					"originalRequest": {
@@ -804,89 +899,6 @@
 						{
 							"key": "Connection",
 							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": null
-				},
-				{
-					"name": "400 Bad request",
-					"originalRequest": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"type\": \"peso\"\r\n    // \"price\": 0.7\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8090/tcs/v1/exchange-rates",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8090",
-							"path": [
-								"tcs",
-								"v1",
-								"exchange-rates"
-							]
-						}
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": "plain",
-					"header": [
-						{
-							"key": "X-Content-Type-Options",
-							"value": "nosniff"
-						},
-						{
-							"key": "X-XSS-Protection",
-							"value": "1; mode=block"
-						},
-						{
-							"key": "Cache-Control",
-							"value": "no-cache, no-store, max-age=0, must-revalidate"
-						},
-						{
-							"key": "Pragma",
-							"value": "no-cache"
-						},
-						{
-							"key": "Expires",
-							"value": "0"
-						},
-						{
-							"key": "X-Frame-Options",
-							"value": "DENY"
-						},
-						{
-							"key": "Content-Length",
-							"value": "0"
-						},
-						{
-							"key": "Date",
-							"value": "Tue, 29 Mar 2022 17:32:42 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "close"
 						}
 					],
 					"cookie": [],
@@ -1163,7 +1175,7 @@
 			},
 			"response": [
 				{
-					"name": "400 Bad request (Request incompleto)",
+					"name": "400 Bad request (Campos nulos)",
 					"originalRequest": {
 						"method": "POST",
 						"header": [
@@ -1174,13 +1186,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4MTA1OSwiaWF0IjoxNjQ4NjQ1MDU5fQ.I9Z85p474C2pGXqcEu-9OFmi33lUULyhuIHNbcfNY8w",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"amount\": \"100\",\r\n    // \"sourceCurrency\": \"libras\",\r\n    \"targetCurrency\": \"euros\"\r\n}",
+							"raw": "{\r\n    \"amount\": \"100\",\r\n\r\n    \"targetCurrency\": \"euro\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1204,7 +1216,7 @@
 					},
 					"status": "Bad Request",
 					"code": 400,
-					"_postman_previewlanguage": "plain",
+					"_postman_previewlanguage": "json",
 					"header": [
 						{
 							"key": "X-Content-Type-Options",
@@ -1231,12 +1243,16 @@
 							"value": "DENY"
 						},
 						{
-							"key": "Content-Length",
-							"value": "0"
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 29 Mar 2022 17:35:03 GMT"
+							"value": "Wed, 30 Mar 2022 13:06:45 GMT"
 						},
 						{
 							"key": "Connection",
@@ -1244,7 +1260,7 @@
 						}
 					],
 					"cookie": [],
-					"body": null
+					"body": "{\n    \"systemCode\": \"ARGUMENT_NOT_VALID\",\n    \"description\": \"Los datos proporcionados no son válidos.\",\n    \"httpStatus\": \"400 BAD_REQUEST\",\n    \"additionalDetails\": [\n        \"sourceCurrency cannot be null\"\n    ]\n}"
 				},
 				{
 					"name": "400 Bad request (tipo de moneda no encontrada)",

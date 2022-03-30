@@ -1,9 +1,11 @@
 package com.tcs.common.exception.impl.model;
 
+import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
+
 import lombok.Builder;
 import lombok.Getter;
-
-import java.io.Serializable;
 
 /**
  * <br/>Clase Dto que define el modelo de objeto para transmitir información
@@ -32,6 +34,8 @@ public class ApiExceptionResponse implements Serializable {
 
   private String httpStatus;
 
+  private List<String> additionalDetails;
+
   /**
    * Método builder que construye un objeto ApiExceptionDto base, con los campos obligatorios.
    *
@@ -44,7 +48,8 @@ public class ApiExceptionResponse implements Serializable {
     return new ApiExceptionResponseBuilder()
         .systemCode(systemCode)
         .description(description)
-        .httpStatus(httpStatus);
+        .httpStatus(httpStatus)
+        .additionalDetails(Collections.emptyList());
   }
 
 }

@@ -12,7 +12,7 @@
 | `/tcs/v1/exchange-rates/{id}`| PUT | Actualiza un registro de tipo de cambio. |
 | `/tcs/v1/exchange-rates/convert`| POST | Aplica el tipo de cambio a un monto. |
 
-> Observación: Cada uno de los endpoints requieren el header Authorization.
+> Observación: Todos los endpoints requieren el header Authorization.
 
 ##Prerrequisitos para instalación y despliegue
 * Java 11
@@ -21,8 +21,11 @@
 * Docker
 
 ##Despliegue con Docker
-| Procedimiento | Comando docker
+> Nota: Los siguientes comandos deben ser ejecutados en la raíz del proyecto.
+
+| Procedimiento | Comando
 | ------------- | ------------------------------ |
+| Generar el .jar | `mvn clean install` |
 | Crear imagen | `docker build -t exchange-rate-api .` |
 | Ver imágenes | `docker images` |
 | Ejecutar la aplicación | `docker run --name exchange-rate-api -p 8090:8090 exchange-rate-api:latest`  o `docker run -p 8090:8090 exchange-rate-api:latest`|

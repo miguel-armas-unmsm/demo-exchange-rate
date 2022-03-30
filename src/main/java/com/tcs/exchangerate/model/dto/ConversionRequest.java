@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -13,12 +12,12 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class ConversionRequest {
 
-    @NotBlank(message = "El monto no deber ser vacío, no debe tener espacios en blanco y no debe ser nulo")
+    @NotNull(message = "amount cannot be null")
     private Double amount;
 
-    @NotBlank(message = "La monedaOrigen no deber ser vacío, no debe tener espacios en blanco y no debe ser nulo")
+    @NotNull(message = "sourceCurrency cannot be null")
     private String sourceCurrency;
 
-    @NotBlank(message = "la monedaDestino no deber ser vacío, no debe tener espacios en blanco y no debe ser nulo")
+    @NotNull(message = "targetCurrency cannot be null")
     private String targetCurrency;
 }

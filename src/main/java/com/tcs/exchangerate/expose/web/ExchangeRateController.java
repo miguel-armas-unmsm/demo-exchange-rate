@@ -6,10 +6,10 @@ import com.tcs.exchangerate.model.dto.ExchangeRateRequest;
 import com.tcs.exchangerate.model.dto.ExchangeRateResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.tcs.exchangerate.business.ExchangeRateService;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.function.Function;
@@ -39,7 +39,7 @@ public class ExchangeRateController {
   private final ExchangeRateService service;
 
   @PostMapping(value = "/convert")
-  public ResponseEntity<ConversionResponse> convert(@RequestBody @Validated ConversionRequest exchangeRate) {
+  public ResponseEntity<ConversionResponse> convert(@Valid @RequestBody ConversionRequest exchangeRate) {
     return ResponseEntity.ok(service.convert(exchangeRate));
   }
 
@@ -49,17 +49,16 @@ public class ExchangeRateController {
   }
 
   @PostMapping
-  public ResponseEntity<Void> save(@RequestBody @Validated ExchangeRateRequest exchangeRateRequest) {
+  public ResponseEntity<Void> save(@Valid @RequestBody ExchangeRateRequest exchangeRateRequest) {
     Long id = service.save(exchangeRateRequest);
     return ResponseEntity.created(buildPostUriLocation.apply(id)).build();
   }
 
   @PutMapping(value = "/{id}")
-  public ResponseEntity<Void> update(@RequestBody @Validated ExchangeRateRequest currency, @PathVariable("id") Long id) {
+  public ResponseEntity<Void> update(@Valid @RequestBody ExchangeRateRequest currency, @PathVariable("id") Long id) {
     service.update(id, currency);
     return ResponseEntity.created(buildPutUriLocation.apply(id)).build();
   }
-
 
   private final static Function<Long, URI> buildPostUriLocation = id ->
       ServletUriComponentsBuilder.fromCurrentRequest()

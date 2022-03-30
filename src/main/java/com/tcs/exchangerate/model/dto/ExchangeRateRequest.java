@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -12,9 +12,9 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class ExchangeRateRequest {
 
-  @NotBlank(message = "El tipo no deber ser vacío, no debe tener espacios en blanco y no debe ser nulo")
+  @NotNull(message = "type cannot be null")
   private String type;
 
-  @NotBlank(message = "El valor no deber ser vacío, no debe tener espacios en blanco y no debe ser nulo")
+  @NotNull(message = "price cannot be null")
   private Double price;
 }
