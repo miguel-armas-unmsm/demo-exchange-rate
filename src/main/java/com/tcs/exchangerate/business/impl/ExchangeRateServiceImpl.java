@@ -60,6 +60,7 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
   public Long save(ExchangeRateRequest exchangeRateRequest) {
     return Optional.ofNullable(exchangeRateRequest)
         .filter(isValidExchangeRateRequest)
+        .filter(request -> !isAlreadySaved.test(request))
         .map(request -> exchangeRepository.save(exchangeRateMapper.fromRequestToEntity(exchangeRateRequest)).getId())
         .orElseThrow(ExceptionCatalog.ERROR0002::buildException);
   }
@@ -102,4 +103,7 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
     }
   };
 
+  private final Predicate<ExchangeRateRequest> isAlreadySaved = request -> findAll()
+      .stream()
+      .anyMatch(savedExchangeRate -> savedExchangeRate.getType().equalsIgnoreCase(request.getType()));
 }
